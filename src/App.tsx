@@ -67,6 +67,17 @@ function App() {
     setAccountToUse(account);
   };
 
+  function exportUserInfo(userInfo: string) {
+    const fileData = JSON.stringify(userInfo);
+    const blob = new Blob([fileData], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.download = "wallet.json";
+    link.href = url;
+    link.click();
+  }
+
+
   return (
     <div
       className="flex gap-30"
@@ -157,12 +168,25 @@ function App() {
                 {currentAccount?.privateKey}
               </span>
             </div>
-            <div>
-              Seed Phrase:{" "}
-              <span style={{ color: "green" }}>
-                {currentAccount?.seedPhrase}
-              </span>
+            <div className="flex">
+              <div>
+                Seed Phrase:{" "}
+                <span style={{ color: "green" }}>
+                  {currentAccount?.seedPhrase}
+                </span>
+              </div>
+              <div>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    exportUserInfo(JSON.stringify(currentAccount));
+                  }}
+                >
+                  download
+                </button>
+              </div>
             </div>
+            
           </div>
         )}
 

@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "ethers": "^5",
     "jotai": "^2.2.2",
     "react": "^18.2.0",
@@ -28,6 +29,7 @@
     "@storybook/react": "7.1.0",
     "@storybook/react-vite": "7.1.0",
     "@storybook/testing-library": "0.2.0",
+    "@types/crypto-js": "^4.1.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
